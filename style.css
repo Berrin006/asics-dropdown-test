@@ -1,0 +1,91 @@
+.fragesport-behållare {
+    max-width: 600px;
+    margin: 24px auto;
+    font-family: Roboto, sans-serif;
+}
+
+details summary .ikon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 200ms ease;
+}
+
+details summary .ikon svg {
+    height: 24px;
+    width: 24px;
+}
+
+details .innehåll img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin: 16px 0;
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes mjukaUpp {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+details[open] .innehåll {
+    animation: mjukaUpp 250ms ease-in-out;
+}
+
+details .innehåll {
+    padding: 16px;
+    line-height: 1.8;
+    margin-bottom: -10px;
+}
+
+details summary {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    background: #1d3557;
+    color: #fff;
+    user-select: none;
+    transition: background 120ms ease;
+}
+
+details {
+    background: #edf4f4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+details[open] summary {
+    background: #0c1728;
+    margin-bottom: 10px;
+}
+
+details summary .minus-ikon {
+    display: none;
+}
+
+details summary .plus-ikon {
+    display: block;
+}
+
+details[open] summary .plus-ikon {
+    display: none;
+}
+
+details[open] summary .minus-ikon {
+    display: block;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
