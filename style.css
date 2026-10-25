@@ -4,48 +4,18 @@
     font-family: Roboto, sans-serif;
 }
 
-details summary .ikon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 200ms ease;
+.dropdown-item {
+    background: #edf4f4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
 }
 
-details summary .ikon svg {
-    height: 24px;
-    width: 24px;
+.dropdown-toggle {
+    display: none;
 }
 
-details .innehåll img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    margin: 16px 0;
-    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes mjukaUpp {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-details[open] .innehåll {
-    animation: mjukaUpp 250ms ease-in-out;
-}
-
-details .innehåll {
-    padding: 16px;
-    line-height: 1.8;
-    margin-bottom: -10px;
-}
-
-details summary {
+.dropdown-header {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -58,34 +28,65 @@ details summary {
     transition: background 120ms ease;
 }
 
-details {
-    background: #edf4f4;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-bottom: 12px;
-}
-
-details[open] summary {
+.dropdown-toggle:checked + .dropdown-header {
     background: #0c1728;
-    margin-bottom: 10px;
 }
 
-details summary .minus-ikon {
+.dropdown-header .ikon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 200ms ease;
+}
+
+.dropdown-header .ikon svg {
+    height: 24px;
+    width: 24px;
+}
+
+.dropdown-header .minus-ikon {
     display: none;
 }
 
-details summary .plus-ikon {
+.dropdown-header .plus-ikon {
     display: block;
 }
 
-details[open] summary .plus-ikon {
+.dropdown-toggle:checked + .dropdown-header .plus-ikon {
     display: none;
 }
 
-details[open] summary .minus-ikon {
+.dropdown-toggle:checked + .dropdown-header .minus-ikon {
     display: block;
 }
 
-details summary::-webkit-details-marker {
-    display: none;
+.innehåll-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out;
+    padding: 0 24px;
+}
+
+.dropdown-toggle:checked ~ .innehåll-wrapper {
+    max-height: 800px; 
+    padding: 16px 24px 24px 24px;
+}
+
+.innehåll {
+    line-height: 1.8;
+    color: #333;
+}
+
+.innehåll img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.2);
+}
+
+.innehåll ol {
+    margin: 8px 0 0 20px;
+    padding: 0;
 }
